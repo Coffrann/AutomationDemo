@@ -3,7 +3,7 @@ from pages.saucedemo.saucedemo_page import SaucedemoPage
 from constants import login_error_constants
 
 
-class TestSaucedemo:
+class TestSaucedemoLogin:
 
     STATUS_SUCCESS = "Success"
     STATUS_LOCKED = 'Locked'

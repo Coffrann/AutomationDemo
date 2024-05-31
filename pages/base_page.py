@@ -65,3 +65,50 @@ class BasePage:
         :return: True if the element is visible, False otherwise.
         """
         return self.page.is_visible(selector)
+
+    def select_option_by_value(self, selector: str, value: str):
+        """
+        Selects an option from a dropdown (select element) by its value.
+
+        :param selector: The selector of the select element.
+        :param value: The value of the option to be selected.
+        """
+        self.page.select_option(selector, value)
+
+    def select_option_by_label(self, selector: str, label: str):
+        """
+        Selects an option from a dropdown (select element) by its label.
+
+        :param selector: The selector of the select element.
+        :param label: The label of the option to be selected.
+        """
+        self.page.select_option(selector, label=label)
+
+    def select_option_by_index(self, selector: str, index: int):
+        """
+        Selects an option from a dropdown (select element) by its index.
+
+        :param selector: The selector of the select element.
+        :param index: The index of the option to be selected.
+        """
+        self.page.select_option(selector, index=index)
+
+    def get_selected_option(self, selector: str):
+        """
+        Gets the selected option from a <select> element.
+
+        :param selector: The selector of the <select> element.
+        :return: The value of the selected option.
+        """
+        selected_option = self.page.eval_on_selector(selector, "element => element.value")
+        return selected_option
+
+    @classmethod
+    def data_test(cls, data_test_value: str):
+        """
+        Selects an element by its data-test attribute value.
+
+        :param data_test_value: The value of the data-test attribute.
+        :return: The locator for the element with the specified data-test value.
+        """
+        return f'[data-test="{data_test_value}"]'
