@@ -1,6 +1,6 @@
 import pytest
 from pages.saucedemo.saucedemo_page import SaucedemoPage
-from constants import login_error_constants
+from constants.pages.saucedemo import login_error_constants
 
 
 class TestSaucedemoLogin:

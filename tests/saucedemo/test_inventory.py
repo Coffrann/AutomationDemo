@@ -1,5 +1,5 @@
 from pages.saucedemo.saucedemo_page import inventory_page
-from constants import inventory_constants
+from constants.pages.saucedemo import inventory_constants
 
 
 class TestSaucedemoInventoryConstants:
