@@ -1,11 +1,16 @@
+import pytest
 from pages.saucedemo.saucedemo_page import inventory_page
 from constants.pages.saucedemo import inventory_constants
 
 
 class TestSaucedemoInventoryConstants:
 
-    def test_inventory_main_nav_title(self, inventory_page):
-        assert inventory_page.get_inventory_text() == inventory_constants.main_nav_title
+    @pytest.mark.parametrize("expected_title", [
+        (inventory_constants.main_nav_title),
+        ("False String")
+    ])
+    def test_inventory_main_nav_title(self, expected_title, inventory_page):
+        assert inventory_page.get_inventory_text() == expected_title
 
     def test_inventory_second_nav_title(self, inventory_page):
         assert inventory_page.get_products_heading_text() == inventory_constants.secondary_nav_title

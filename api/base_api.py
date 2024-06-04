@@ -1,3 +1,5 @@
+import allure
+import curlify
 import requests
 from jsonschema import validate, ValidationError, SchemaError
 
@@ -12,6 +14,11 @@ class BaseAPI:
         """
         self.base_url = base_url
         self.headers = headers if headers else {}
+
+    def attach_allure_info(self, response):
+        allure.attach(curlify.to_curl(response.request), name="CURL", attachment_type=allure.attachment_type.TEXT)
+        allure.attach(response.text, name="Response", attachment_type=allure.attachment_type.JSON)
+        allure.attach(str(response.status_code), name="Status Code", attachment_type=allure.attachment_type.TEXT)
 
     def get(self, endpoint, params=None, headers=None, return_raw=False):
         """
