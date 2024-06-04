@@ -1,9 +1,9 @@
 
-# Open Testing Framework with Python Playwright
+# Example Testing Framework with Pytest
 
 ## Introduction
 
-Welcome to my Open Testing Framework repository! This project showcases my skills and expertise in automated testing using Python and Playwright. Designed for technical recruiters and fellow developers, this framework demonstrates best practices, clean code, and efficient automation strategies.
+Welcome to my Open Testing Framework repository! This project showcases my skills and expertise in automated testing using Pytest. Designed for fellow developers and QAs, this framework demonstrates best practices, clean code, and efficient automation strategies.
 
 ## Features
 
@@ -27,8 +27,8 @@ Welcome to my Open Testing Framework repository! This project showcases my skill
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/open-testing-framework.git
-   cd open-testing-framework
+   git clone git@github.com:{user}/AutomationDemo.git
+   cd AutomationDemo
    ```
 
 2. **Install Dependencies**
@@ -49,8 +49,10 @@ pytest
 For a specific test file or directory, you can specify the path:
 
 ```bash
-pytest tests/test_example.py
+pytest tests/test_example.py -n 4 --headless
 ```
+- -n: Number of threads
+- headless: Run tests with headless browser
 
 ### Generating Reports
 
@@ -63,6 +65,10 @@ After running the tests, a report will be generated with Allure, to open it run 
 
 ```
 open-testing-framework/
+│
+├── constants/             # Constants for assertions
+│   ├── pages/             # Browser tests constants
+│   └── api/               # Api tests constants
 │
 ├── tests/                 # Test cases
 │   ├── test_example.py    # Example test file
